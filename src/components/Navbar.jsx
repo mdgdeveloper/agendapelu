@@ -59,6 +59,15 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
+const Button = styled.button`
+padding: 10px;
+background-color: teal;
+border: 0px;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+`;
+
 const Navbar = () => {
   return (
     <Container>
@@ -74,6 +83,7 @@ const Navbar = () => {
           <Logo>Agenda.</Logo>
         </Center>
         <Right>
+        <MenuItem><Button>NUEVA RESERVA</Button></MenuItem>
           <MenuItem>REGISTRAR</MenuItem>
           <MenuItem>ACCEDER</MenuItem>
           <MenuItem>
