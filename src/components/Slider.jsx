@@ -2,12 +2,14 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import { mobile } from '../responsive';
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   overflow: hidden;
+  ${mobile({ display: "none"})}
 `;
 
 const Arrow = styled.div`
