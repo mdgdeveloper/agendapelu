@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 // Icons
-import { Event, Search } from '@material-ui/icons'
+import { Event, Search } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
+
+import { Link, } from "react-router-dom";
+
 
 // Creating Styled components
 const Container = styled.div`
@@ -26,26 +29,29 @@ const Left = styled.div`
 `;
 
 const Language = styled.span`
-    font-size: 14px;
-    cursor: pointer;
-    ${mobile({ display: "none"})}
+  font-size: 14px;
+  cursor: pointer;
+  ${mobile({ display: "none" })}
 `;
 
 const SearchContainer = styled.div`
   border: 1px solid lightgray;
   display: flex;
   align-items: center;
-  margin-left : 25px;
+  margin-left: 25px;
 `;
 
 const Input = styled.input`
   border: none;
-  ${mobile({ width: "50px", height: "30px"})}
+  ${mobile({ width: "50px", height: "30px" })}
 `;
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "24px"})}
+  ${mobile({ fontSize: "24px" })}
+  &:hover{
+  text-decoration: underline
+  }
 `;
 
 const Center = styled.div`
@@ -57,52 +63,56 @@ const Right = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  ${mobile({ flex: 2, justifyContent: "center"})}
+  ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "12px", marginLeft: "10px"})}
+  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
 const Button = styled.button`
-padding: 10px;
-background-color: teal;
-border: 0px;
-color: white;
-border-radius: 5px;
-cursor: pointer;
+  padding: 10px;
+  background-color: teal;
+  border: 0px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Navbar = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Left>
+      <Container>
+        <Wrapper>
+          <Left>
             <Language>EN</Language>
             <SearchContainer>
               <Input placeholder="Search" />
-              <Search style={{color: "gray", fontSize: 16}}/>
+              <Search style={{ color: "gray", fontSize: 16 }} />
             </SearchContainer>
-        </Left>
-        <Center>
-          <Logo>Agenda.</Logo>
-        </Center>
-        <Right>
-          <MenuItem>REGISTRAR</MenuItem>
-          <MenuItem>ACCEDER</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <Event 
-              
-              />
-            </Badge>
-          </MenuItem>
-        </Right>
-      </Wrapper>
-    </Container>
+          </Left>
+          <Center>
+
+            <Logo><Link style={{ color: 'inherit', textDecoration:'none' }} to="/">Agenda.</Link></Logo>
+
+          </Center>
+          <Right>
+            <MenuItem><Link to="/register">REGISTRAR</Link></MenuItem>
+            <MenuItem>
+              <Link to="/login">ACCEDER</Link>
+            </MenuItem>
+            <MenuItem>
+              <Badge badgeContent={4} color="primary">
+                <Event />
+              </Badge>
+            </MenuItem>
+          </Right>
+        </Wrapper>
+      </Container>
+
+
   );
 };
 
